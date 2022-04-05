@@ -1,0 +1,21 @@
+<launch>
+
+  <arg name="robot_description" default="robot_description"/>
+  <arg name="rviz" default="true"/>
+  
+  <param name="$(arg robot_description)" command="$(find xacro)/xacro --inorder '$(find inspection_cell_support)/urdf/workcell.xacro'" />
+  
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
+    respawn="false" output="screen">
+  </node>
+    
+  <node name="joint_state_publisher" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui"
+    respawn="false" output="screen">
+  </node> 
+  
+  
+  <!-- Launch visualization -->
+  <node if="$(arg rviz)" pkg="rviz" type="rviz" name="rviz_window"
+     args="-d $(find inspection_cell_support)/config/rviz_base_config.rviz"/>
+
+</launch>
