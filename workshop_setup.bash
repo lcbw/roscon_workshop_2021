@@ -12,30 +12,25 @@ sudo add-apt-repository ppa:ros-industrial/ppa
 sudo apt-get update
 sudo apt-get install taskflow
 
-# Clone workshop repo
-cd /home/user
-git clone
-https://github.com/ros-industrial-consortium/roscon_workshop_2021
-
 # Move to and vcstool dep_ws
-cd /home/user/roscon_workshop_2021/dep_ws/src
+cd /home/lbayewallace/repos/automate22/roscon_workshop_2021/deps_ws/src
 vcs import < deps.rosinstall
 
 # Move to, vcstool, and rosdep ros1_ws
-cd /home/user/roscon_workshop_2021/ros1_ws/src
+cd /home/lbayewallace/repos/automate22/roscon_workshop_2021/ros1_ws/src
 vcs import < ros1.rosinstall
-cd /home/user/roscon_workshop_2021/ros1_ws
+cd /home/lbayewallace/repos/automate22/roscon_workshop_2021/ros1_ws
 rosdep install --from-paths src --ignore-src --rosdistro noetic -r -y
 
 # Move to, vcstool, and rosdep ros2_ws
-cd /home/user/roscon_workshop_2021/ros2_ws/src
+cd /home/lbayewallace/repos/automate22/roscon_workshop_2021/ros2_ws/src
 vcs import < ros2.rosinstall
-cd /home/user/roscon_workshop_2021/ros2_ws
-rosdep install --from-paths src --ignore-src --rosdistro galactic -r -y
+cd /home/lbayewallace/repos/automate22/roscon_workshop_2021/ros2_ws
+rosdep install --from-paths src --ignore-src --rosdistro foxy -r -y
 
 # Move to, vcstool, and rosdep bridge_ws
-cd /home/user/roscon_workshop_2021/bridge_ws/src
-vcs import < bridge.rosinstall
-cd /home/user/roscon_workshop_2021/bridge_ws
-rosdep install --from-paths src --ignore-src --rosdistro galactic -r -y
+cd /home/lbayewallace/repos/automate22/roscon_workshop_2021/bridge_ws/src
 
+vcs import < bridge.rosinstall
+cd /home/lbayewallace/repos/automate22/roscon_workshop_2021/bridge_ws
+rosdep install --from-paths src --ignore-src --rosdistro foxy -r -y
